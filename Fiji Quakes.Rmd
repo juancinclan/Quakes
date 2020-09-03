@@ -1,0 +1,28 @@
+---
+title: "Fiji Quakes"
+author: "Juan Carlos Inclán"
+date: "3/9/2020"
+output: ioslides_presentation
+---
+
+## Locations of Earthquakes of Fiji
+
+The following Scatterplot uses the quakes data set from the datasets library in R. The data contains 5 columns that are the following:
+
+1. lat=Latitude of the event
+2. long=Longitude of the event
+3. depth=Depth (km)
+4. mag=Richter Magnitude
+5. stations= Number of stations reporting
+
+The plot has in the x axis de longitude and in the y axis the latitude. The colors are by the number of stations reporting and the size is the Richter magnitude of the event.
+
+***
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ library(datasets)
+library(plotly)
+
+plot_ly(quakes, x = ~long, y = ~lat, type = "scatter",
+color = ~factor(stations), size = ~mag)
+
+```
